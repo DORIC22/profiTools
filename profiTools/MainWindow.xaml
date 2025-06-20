@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:profiTools"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ProfiTools" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="3389" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" Width="60" Name="websiteButton" Click="websiteButton_Click"/>
+        <Button Content="WINGET" HorizontalAlignment="Left" Margin="93,10,0,0" VerticalAlignment="Top" Height="30" Width="60" Name="wingetButton" Click="wingetButton_Click"/>
+
     </Grid>
 </Window>

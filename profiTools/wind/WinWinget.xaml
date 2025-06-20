@@ -1,0 +1,48 @@
+﻿<Window x:Class="profiTools.wind.WinWinget"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="WINGET UTILITY" Height="450" Width="800">
+    <Grid>
+        <!-- Кнопка для применения изменений -->
+        <Button Content="Применить" HorizontalAlignment="Center" Margin="0,394,0,0" VerticalAlignment="Top" Height="30" Width="400" Name="succesButton"/>
+
+        <!-- Поле поиска -->
+        <TextBox FontSize="18" HorizontalAlignment="Left" Margin="10,39,0,0" TextWrapping="Wrap" Name="searchTextBox" VerticalAlignment="Top" Height="30" Width="250"/>
+        <Label Content="Поиск:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="250" Height="29"/>
+
+        <!-- Выпадающий список для фильтрации -->
+        <ComboBox Name="filterComboBox" HorizontalAlignment="Left" Margin="270,39,0,0" VerticalAlignment="Top" Width="150" FontSize="14">
+            <ComboBoxItem Content="Все программы" IsSelected="True"/>
+            <ComboBoxItem Content="Требуют обновления"/>
+        </ComboBox>
+
+        <!-- Таблица с программами -->
+        <ListView Name="programListView" Margin="10,80,10,50">
+            <ListView.View>
+                <GridView>
+                    <!-- Колонка с названиями программ -->
+                    <GridViewColumn Header="Программа" Width="300" DisplayMemberBinding="{Binding ProgramName}" />
+
+                    <!-- Колонка с действиями -->
+                    <GridViewColumn Header="Действие" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- CheckBox для удаления -->
+                                    <CheckBox Content="Удалить" IsChecked="{Binding Remove}" Margin="0,0,10,0" 
+                                              Checked="ActionCheckBox_Checked" Unchecked="ActionCheckBox_Unchecked"/>
+                                    <!-- CheckBox для обновления -->
+                                    <CheckBox Content="Обновить" IsChecked="{Binding Update}" 
+                                              Checked="ActionCheckBox_Checked" Unchecked="ActionCheckBox_Unchecked"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
